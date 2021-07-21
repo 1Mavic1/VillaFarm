@@ -79,10 +79,7 @@ const showImage = async (req,res = response)=>{
     }
 
     if(modelo.img){
-        const pathImage = path.join(__dirname ,'../uploads',collection,modelo.img)
-        if(fs.existsSync(pathImage)){
-            return res.sendFile(pathImage);
-        }
+        return res.json(modelo.img); 
     }
     const pathNotFoundImage = path.join(__dirname ,'../assets','no-image.jpg')
     if(fs.existsSync(pathNotFoundImage)){
