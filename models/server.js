@@ -9,7 +9,11 @@ class Server{
         this.port = process.env.PORT;
         this.paths = {
             authPath : '/api/auth',
+            categoryPath: '/api/category',
+            productPath: '/api/product',
+            searchPath: '/api/search',
             userPath : '/api/user',
+            uploadPath : '/api/upload',
         }
         //connect database
         this.dbConnect();
@@ -37,6 +41,10 @@ class Server{
     }
     routes(){
         this.app.use(this.paths.authPath,require('../routes/auth'));
+        this.app.use(this.paths.categoryPath,require('../routes/category'));
+        this.app.use(this.paths.productPath,require('../routes/product'));
+        this.app.use(this.paths.searchPath,require('../routes/search'));
+        this.app.use(this.paths.uploadPath,require('../routes/upload'));
         this.app.use(this.paths.userPath,require('../routes/user'));
     }
 
