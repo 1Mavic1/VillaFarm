@@ -1,9 +1,10 @@
 const { 
-        Role,
-        User ,
-        Category,
-        Product,
-    } = require('../models');
+    Category,
+    Marketplace,
+    Product,
+    Role,
+    User ,
+} = require('../models');
 
 
 const allowedCollections = async(collection='',collections = [])=>{
@@ -17,6 +18,12 @@ const existCategory = async(id)=>{
     const exist = await Category.findById(id);
     if(!exist){
         throw new Error(`Category with id ${id} don't exist`);
+    }
+}
+const existMarketplace = async(id)=>{
+    const exist = await Marketplace.findById(id);
+    if(!exist){
+        throw new Error(`This publication with id ${id} don't exist`);
     }
 }
 const existProduct = async(id)=>{
@@ -51,6 +58,7 @@ module.exports = {
     allowedCollections,
     existCategory,
     existProduct,
+    existMarketplace,
     existUserById,
     emailValidate,
     roleValidate,

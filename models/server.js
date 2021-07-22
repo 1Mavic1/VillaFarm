@@ -10,6 +10,7 @@ class Server{
         this.paths = {
             authPath : '/api/auth',
             categoryPath: '/api/category',
+            marketplacePath:'/api/marketplace',
             productPath: '/api/product',
             searchPath: '/api/search',
             userPath : '/api/user',
@@ -42,6 +43,7 @@ class Server{
     routes(){
         this.app.use(this.paths.authPath,require('../routes/auth'));
         this.app.use(this.paths.categoryPath,require('../routes/category'));
+        this.app.use(this.paths.marketplacePath,require('../routes/marketplace'));
         this.app.use(this.paths.productPath,require('../routes/product'));
         this.app.use(this.paths.searchPath,require('../routes/search'));
         this.app.use(this.paths.uploadPath,require('../routes/upload'));
