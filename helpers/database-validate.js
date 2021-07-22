@@ -2,6 +2,7 @@ const {
     Category,
     Marketplace,
     Product,
+    Publication,
     Role,
     User ,
 } = require('../models');
@@ -28,6 +29,12 @@ const existMarketplace = async(id)=>{
 }
 const existProduct = async(id)=>{
     const exist = await Product.findById(id);
+    if(!exist){
+        throw new Error(`Product with id ${id} don't exist`);
+    }
+}
+const existPublicationById = async(id)=>{
+    const exist = await Publication.findById(id);
     if(!exist){
         throw new Error(`Product with id ${id} don't exist`);
     }
@@ -59,6 +66,7 @@ module.exports = {
     existCategory,
     existProduct,
     existMarketplace,
+    existPublicationById,
     existUserById,
     emailValidate,
     roleValidate,

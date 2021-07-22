@@ -12,6 +12,7 @@ class Server{
             categoryPath: '/api/category',
             marketplacePath:'/api/marketplace',
             productPath: '/api/product',
+            publicationPath: '/api/publication',
             searchPath: '/api/search',
             userPath : '/api/user',
             uploadPath : '/api/upload',
@@ -45,6 +46,7 @@ class Server{
         this.app.use(this.paths.categoryPath,require('../routes/category'));
         this.app.use(this.paths.marketplacePath,require('../routes/marketplace'));
         this.app.use(this.paths.productPath,require('../routes/product'));
+        this.app.use(this.paths.publicationPath,require('../routes/publication'));
         this.app.use(this.paths.searchPath,require('../routes/search'));
         this.app.use(this.paths.uploadPath,require('../routes/upload'));
         this.app.use(this.paths.userPath,require('../routes/user'));
