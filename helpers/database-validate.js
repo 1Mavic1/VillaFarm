@@ -1,5 +1,6 @@
 const { 
     Category,
+    Comment,
     Marketplace,
     Product,
     Publication,
@@ -21,6 +22,12 @@ const existCategory = async(id)=>{
         throw new Error(`Category with id ${id} don't exist`);
     }
 }
+const existComment = async(id)=>{
+    const exist = await Comment.findById(id);
+    if(!exist){
+        throw new Error(`Comment with id ${id} don't exist`);
+    }
+}
 const existMarketplace = async(id)=>{
     const exist = await Marketplace.findById(id);
     if(!exist){
@@ -36,7 +43,7 @@ const existProduct = async(id)=>{
 const existPublicationById = async(id)=>{
     const exist = await Publication.findById(id);
     if(!exist){
-        throw new Error(`Product with id ${id} don't exist`);
+        throw new Error(`Publication with id ${id} don't exist`);
     }
 }
 
@@ -64,6 +71,7 @@ const roleValidate = async(role = '') => {
 module.exports = {
     allowedCollections,
     existCategory,
+    existComment,
     existProduct,
     existMarketplace,
     existPublicationById,
